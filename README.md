@@ -1,5 +1,5 @@
 # AssistantCoach
- Harokopio University
+ --- Harokopio University ---
 
 ## 📦 Project Structure
 
