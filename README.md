@@ -7,7 +7,7 @@
 src/
  └── main/
       └── java/
-           └── org/hua/coach/
+           └── org/huacoach/
                 ├── app/
                 │    ├── Main.java
                 │    └── CommandLineRunner.java
