@@ -2,7 +2,6 @@ package org.huacoach.interfaces;
 
 import java.time.Duration;
 
-//See
 public interface Activity {
     String getType();
     Duration getTotalTime();
