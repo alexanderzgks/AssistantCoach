@@ -17,6 +17,19 @@ public class ActivityModel {
         this.startTime = startTime;
     }
 
+    public ActivityModel(){
+        this.sportType = SportType.OTHER;
+        this.startTime = null;
+    }
+
+    public void setSportType(SportType sportType){
+        this.sportType = sportType;
+    }
+
+    public void setStartTime(OffsetDateTime startTime){
+        this.startTime = startTime;
+    }
+
     public SportType getSportType(){
         return sportType;
     }

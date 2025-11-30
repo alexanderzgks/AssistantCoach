@@ -18,12 +18,13 @@ import java.util.List;
 
 public class TcxFileParser {
 
-    private List<ActivityModel> activityModelList = new ArrayList<>();
     OffsetDateTime time;
     Double lat = null, lon = null, alt = null, dist = null;
     Integer hr = null, cad = null;
 
-    public List<ActivityModel> readXMLFile(String fileName){
+    public ActivityModel readXMLFile(String fileName){
+
+        ActivityModel activityModel = new ActivityModel();
 
         try{
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -39,7 +40,9 @@ public class TcxFileParser {
                 SportType sport = mapSportType(sportAttr);
                 Element firstLapElement = (Element) activityElement.getElementsByTagName("Lap").item(0);
                 time = OffsetDateTime.parse(firstLapElement.getAttribute("StartTime"));
-                ActivityModel activity = new ActivityModel(sport, time);
+                activityModel = new ActivityModel(sport, time);
+//                activityModel.setSportType(sport);
+//                activityModel.setStartTime(time);
                 //Lap
                 NodeList lapNodes = activityElement.getElementsByTagName("Lap");
                 for (int j = 0; j < lapNodes.getLength(); j++) {
@@ -85,12 +88,10 @@ public class TcxFileParser {
                         lap.addTracks(track);
                     }
 
-                    activity.addLaps(lap);
+                    activityModel.addLaps(lap);
                 }
-
-                activityModelList.add(activity);
             }
-            return activityModelList;
+            return activityModel;
 
         }catch (Exception e){
             e.printStackTrace();

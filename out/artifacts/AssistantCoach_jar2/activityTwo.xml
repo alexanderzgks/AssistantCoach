@@ -1,0 +1,36 @@
+<Activities>
+    <Activity Sport="Swimming">
+        <Id>2014-12-26T11:00:00.000Z</Id>
+
+        <Lap StartTime="2014-12-26T11:00:00.000Z">
+            <Track>
+                <Trackpoint>
+                    <Time>2014-12-26T11:00:00.000Z</Time>
+                    <Position>
+                        <LatitudeDegrees>37.983810</LatitudeDegrees>
+                        <LongitudeDegrees>23.727539</LongitudeDegrees>
+                    </Position>
+                    <AltitudeMeters>0.0</AltitudeMeters>
+                    <DistanceMeters>0.0</DistanceMeters>
+                    <HeartRateBpm>
+                        <Value>110</Value>
+                    </HeartRateBpm>
+                </Trackpoint>
+
+                <Trackpoint>
+                    <Time>2014-12-26T11:05:00.000Z</Time>
+                    <Position>
+                        <LatitudeDegrees>37.983900</LatitudeDegrees>
+                        <LongitudeDegrees>23.727600</LongitudeDegrees>
+                    </Position>
+                    <AltitudeMeters>0.0</AltitudeMeters>
+                    <DistanceMeters>250.0</DistanceMeters>
+                    <HeartRateBpm>
+                        <Value>125</Value>
+                    </HeartRateBpm>
+                </Trackpoint>
+            </Track>
+        </Lap>
+
+    </Activity>
+</Activities>
