@@ -1,6 +1,6 @@
 package org.huacoach.services;
 
-import org.huacoach.interfaces.Sex;
+import org.huacoach.enums.Sex;
 import java.time.Duration;
 
 public class CaloriesCalculator { // Διόρθωση 1: Χωρίς ()

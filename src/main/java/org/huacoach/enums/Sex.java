@@ -1,4 +1,4 @@
-package org.huacoach.interfaces;
+package org.huacoach.enums;
 
 public enum Sex {
     MALE,

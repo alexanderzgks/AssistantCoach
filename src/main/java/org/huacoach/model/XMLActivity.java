@@ -1,6 +1,6 @@
-package org.huacoach.model.XMLmodels;
+package org.huacoach.model;
 
-import org.huacoach.interfaces.SportType;
+import org.huacoach.enums.SportType;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -10,11 +10,13 @@ public class XMLActivity {
 
     private SportType sportType;
     private OffsetDateTime startTime;
+    private String id;
     private List<Lap> laps = new ArrayList<>();
 
-    public XMLActivity(SportType sportType, OffsetDateTime startTime){
+    public XMLActivity(SportType sportType, OffsetDateTime startTime, String id){
         this.sportType = sportType;
         this.startTime = startTime;
+        this.id = id;
     }
 
     public XMLActivity(){

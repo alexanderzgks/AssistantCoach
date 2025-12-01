@@ -1,6 +1,5 @@
-package org.huacoach.model.XMLmodels;
+package org.huacoach.model;
 
-import org.huacoach.model.XMLmodels.Trackpoint;
 import java.util.ArrayList;
 import java.util.List;
 

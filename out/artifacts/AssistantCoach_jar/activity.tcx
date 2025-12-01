@@ -1,0 +1,96 @@
+<Activities>
+    <Activity Sport="Running">
+        <Id>2014-12-26T10:00:39.000Z</Id>
+
+        <Lap StartTime="2014-12-26T10:00:39.000Z">
+            <Track>
+                <!-- 1ο σημείο: αρχή δραστηριότητας -->
+                <Trackpoint>
+                    <Time>2014-12-26T10:00:39.000Z</Time>
+                    <Position>
+                        <LatitudeDegrees>46.0934465</LatitudeDegrees>
+                        <LongitudeDegrees>14.6780337</LongitudeDegrees>
+                    </Position>
+                    <AltitudeMeters>279.0</AltitudeMeters>
+                    <DistanceMeters>0.0</DistanceMeters>
+                    <HeartRateBpm>
+                        <Value>113</Value>
+                    </HeartRateBpm>
+                </Trackpoint>
+
+                <!-- 2ο σημείο: μετά από 1 λεπτό, 200 μέτρα -->
+                <Trackpoint>
+                    <Time>2014-12-26T10:01:39.000Z</Time>
+                    <Position>
+                        <LatitudeDegrees>46.0935000</LatitudeDegrees>
+                        <LongitudeDegrees>14.6782000</LongitudeDegrees>
+                    </Position>
+                    <AltitudeMeters>280.0</AltitudeMeters>
+                    <DistanceMeters>200.0</DistanceMeters>
+                    <HeartRateBpm>
+                        <Value>125</Value>
+                    </HeartRateBpm>
+                </Trackpoint>
+
+                <!-- 3ο σημείο: μετά από 2 λεπτά, 400 μέτρα -->
+                <Trackpoint>
+                    <Time>2014-12-26T10:02:39.000Z</Time>
+                    <Position>
+                        <LatitudeDegrees>46.0935500</LatitudeDegrees>
+                        <LongitudeDegrees>14.6783500</LongitudeDegrees>
+                    </Position>
+                    <AltitudeMeters>282.0</AltitudeMeters>
+                    <DistanceMeters>400.0</DistanceMeters>
+                    <HeartRateBpm>
+                        <Value>130</Value>
+                    </HeartRateBpm>
+                </Trackpoint>
+
+                <!-- 4ο σημείο: μετά από 3 λεπτά, 600 μέτρα -->
+                <Trackpoint>
+                    <Time>2014-12-26T10:03:39.000Z</Time>
+                    <Position>
+                        <LatitudeDegrees>46.0936000</LatitudeDegrees>
+                        <LongitudeDegrees>14.6785000</LongitudeDegrees>
+                    </Position>
+                    <AltitudeMeters>283.0</AltitudeMeters>
+                    <DistanceMeters>600.0</DistanceMeters>
+                    <HeartRateBpm>
+                        <Value>135</Value>
+                    </HeartRateBpm>
+                </Trackpoint>
+
+                <!-- 5ο σημείο: μετά από 4 λεπτά, 800 μέτρα -->
+                <Trackpoint>
+                    <Time>2014-12-26T10:04:39.000Z</Time>
+                    <Position>
+                        <LatitudeDegrees>46.0936500</LatitudeDegrees>
+                        <LongitudeDegrees>14.6786500</LongitudeDegrees>
+                    </Position>
+                    <AltitudeMeters>285.0</AltitudeMeters>
+                    <DistanceMeters>800.0</DistanceMeters>
+                    <HeartRateBpm>
+                        <Value>138</Value>
+                    </HeartRateBpm>
+                </Trackpoint>
+
+                <!-- 6ο σημείο: μετά από 5 λεπτά, 1000 μέτρα -->
+                <Trackpoint>
+                    <Time>2014-12-26T10:05:39.000Z</Time>
+                    <Position>
+                        <LatitudeDegrees>46.0937000</LatitudeDegrees>
+                        <LongitudeDegrees>14.6788000</LongitudeDegrees>
+                    </Position>
+                    <AltitudeMeters>286.0</AltitudeMeters>
+                    <DistanceMeters>1000.0</DistanceMeters>
+                    <HeartRateBpm>
+                        <Value>140</Value>
+                    </HeartRateBpm>
+                </Trackpoint>
+
+            </Track>
+        </Lap>
+
+    </Activity>
+</Activities>
+

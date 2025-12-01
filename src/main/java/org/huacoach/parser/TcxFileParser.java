@@ -1,10 +1,10 @@
 package org.huacoach.parser;
 
-import org.huacoach.interfaces.SportType;
-import org.huacoach.model.XMLmodels.XMLActivity;
-import org.huacoach.model.XMLmodels.Lap;
-import org.huacoach.model.XMLmodels.Track;
-import org.huacoach.model.XMLmodels.Trackpoint;
+import org.huacoach.enums.SportType;
+import org.huacoach.model.XMLActivity;
+import org.huacoach.model.Lap;
+import org.huacoach.model.Track;
+import org.huacoach.model.Trackpoint;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -37,8 +37,9 @@ public class TcxFileParser {
                 String sportAttr = activityElement.getAttribute("Sport");
                 SportType sport = mapSportType(sportAttr);
                 Element firstLapElement = (Element) activityElement.getElementsByTagName("Lap").item(0);
+                String id = activityElement.getElementsByTagName("Id").item(0).getTextContent();
                 time = OffsetDateTime.parse(firstLapElement.getAttribute("StartTime"));
-                activityModel = new XMLActivity(sport, time);
+                activityModel = new XMLActivity(sport, time, id);
                 //Lap
                 NodeList lapNodes = activityElement.getElementsByTagName("Lap");
                 for (int j = 0; j < lapNodes.getLength(); j++) {

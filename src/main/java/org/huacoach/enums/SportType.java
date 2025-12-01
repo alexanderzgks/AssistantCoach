@@ -1,4 +1,4 @@
-package org.huacoach.interfaces;
+package org.huacoach.enums;
 
 public enum SportType {
     // Οι τιμές (numbers) είναι το μ (multiplier) για κάθε άθλημα

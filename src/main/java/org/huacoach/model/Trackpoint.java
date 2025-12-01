@@ -1,4 +1,4 @@
-package org.huacoach.model.XMLmodels;
+package org.huacoach.model;
 
 import java.time.OffsetDateTime;
 
