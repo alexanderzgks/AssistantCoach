@@ -1,24 +1,27 @@
 package org.huacoach.model.profile;
 
 import org.huacoach.interfaces.Sex;
+import org.huacoach.model.XMLmodels.ActivityModel;
+
+import java.util.List;
 
 public class UserProfile {
 
-    private final int ssn;
+    private final List<ActivityModel> activities;
     private final String userName;
     private final Sex sx;
     private int age;
     private double weight;
 
-    public UserProfile(int ssn, String userName, Sex sx, int age,double weight){
-        this.ssn = ssn;
+    public UserProfile(List<ActivityModel> activities,String userName, Sex sx, int age,double weight){
+        this.activities = activities;
         this.userName = userName;
         this.sx = sx;
         this.age = age;
         this.weight = weight;
     }
 
-    public int getSsn(){ return ssn; }
+    public List<ActivityModel> getActivities(){ return activities; }
     public String getUserName(){ return userName; }
     public Sex getSex(){ return sx; }
     public int getAge(){ return age; }

@@ -1,5 +1,5 @@
 package org.huacoach.cli;
 
-public class ArgumentParser {
+public class  ArgumentParser {
 
 }

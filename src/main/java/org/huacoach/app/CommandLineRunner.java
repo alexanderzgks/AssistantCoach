@@ -3,8 +3,6 @@ package org.huacoach.app;
 import org.huacoach.parser.TcxFileParser;
 import org.huacoach.model.XMLmodels.*;
 
-import java.lang.annotation.Target;
-import java.util.List;
 
 public class CommandLineRunner {
     private TcxFileParser tcxFileParser = new TcxFileParser();
@@ -12,6 +10,8 @@ public class CommandLineRunner {
     private Lap lap;
     private Track track;
     private Trackpoint trackpoint;
+
+
 
     public void runTest(String[] args){
 
