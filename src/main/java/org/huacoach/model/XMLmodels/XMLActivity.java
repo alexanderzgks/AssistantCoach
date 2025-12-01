@@ -6,18 +6,18 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityModel {
+public class XMLActivity {
 
     private SportType sportType;
     private OffsetDateTime startTime;
     private List<Lap> laps = new ArrayList<>();
 
-    public ActivityModel(SportType sportType, OffsetDateTime startTime){
+    public XMLActivity(SportType sportType, OffsetDateTime startTime){
         this.sportType = sportType;
         this.startTime = startTime;
     }
 
-    public ActivityModel(){
+    public XMLActivity(){
         this.sportType = SportType.OTHER;
         this.startTime = null;
     }

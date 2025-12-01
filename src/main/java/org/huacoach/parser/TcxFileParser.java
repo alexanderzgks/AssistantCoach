@@ -1,7 +1,7 @@
 package org.huacoach.parser;
 
 import org.huacoach.interfaces.SportType;
-import org.huacoach.model.XMLmodels.ActivityModel;
+import org.huacoach.model.XMLmodels.XMLActivity;
 import org.huacoach.model.XMLmodels.Lap;
 import org.huacoach.model.XMLmodels.Track;
 import org.huacoach.model.XMLmodels.Trackpoint;
@@ -13,8 +13,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.FileInputStream;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TcxFileParser {
 
@@ -22,9 +20,9 @@ public class TcxFileParser {
     Double lat = null, lon = null, alt = null, dist = null;
     Integer hr = null, cad = null;
 
-    public ActivityModel readXMLFile(String fileName){
+    public XMLActivity readXMLFile(String fileName){
 
-        ActivityModel activityModel = new ActivityModel();
+        XMLActivity activityModel = new XMLActivity();
 
         try{
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -40,9 +38,7 @@ public class TcxFileParser {
                 SportType sport = mapSportType(sportAttr);
                 Element firstLapElement = (Element) activityElement.getElementsByTagName("Lap").item(0);
                 time = OffsetDateTime.parse(firstLapElement.getAttribute("StartTime"));
-                activityModel = new ActivityModel(sport, time);
-//                activityModel.setSportType(sport);
-//                activityModel.setStartTime(time);
+                activityModel = new XMLActivity(sport, time);
                 //Lap
                 NodeList lapNodes = activityElement.getElementsByTagName("Lap");
                 for (int j = 0; j < lapNodes.getLength(); j++) {
