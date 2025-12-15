@@ -4,40 +4,29 @@
 ## 📦 Project Structure
 
 ```
-src/
- └── main/
-      └── java/
-           └── org/huacoach/
-                ├── app/
-                │    ├── Main.java
-                │    └── CommandLineRunner.java
-                │
-                ├── interfaces/
-                │    └── Activity.java
-                │
-                ├── model/
-                │    ├── activity/
-                │    │    ├── AbstractActivity.java
-                │    │    ├── RunningActivity.java
-                │    │    ├── CyclingActivity.java
-                │    │    ├── SwimmingActivity.java
-                │    │    ├── WalkingActivity.java
-                │    │    ├── Lap.java
-                │    │    ├── Track.java
-                │    │    └── TrackPoint.java
-                │    │
-                │    └── profile/
-                │         └── UserProfile.java
-                │
-                ├── parser/
-                │    └── TcxFileParser.java
-                │
-                ├── services/
-                │    ├── ActivityService.java
-                │    ├── CaloriesCalculator.java
-                │    └── StatisticsCalculator.java
-                │
-                └── cli/
-                     ├── ArgumentParser.java
-                     └── ConsolePrinter.java
-```
+org.huacoach
+├── app
+│   └── Main.java
+│
+├── enums
+│   ├── Sex.java
+│   └── SportType.java
+│
+├── model
+│   ├── Lap.java
+│   ├── Track.java
+│   ├── Trackpoint.java
+│   └── XMLActivity.java
+│
+├── parser
+│   └── TcxFileParser.java
+│
+├── services
+│   ├── ActivityPrinter.java
+│   ├── ActivityService.java
+│   ├── CaloriesCalculator.java
+│   └── StatisticsCalculator.java
+│
+└── validation
+    └── ArgsValidator.java
+
