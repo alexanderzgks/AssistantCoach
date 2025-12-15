@@ -34,6 +34,7 @@ org.huacoach
 │
 └── validation
     └── ArgsValidator.java
+```
 
 ## Instructions
 Για να τρέξετε το πρόγραμμα θα πρέπει να να μεταβείται στον φάκελο του προγράμματος και έπειτα θα πρέπει
@@ -47,7 +48,7 @@ out/
         ├── activity.tcx
         ├── activityTwo.tcx
         └── AssistantCoach.jar
-
+```
 
  - java -jar AssistantCoach.jar activity.tcx activityTwo.tcx
  - java -jar AssistantCoach.jar -w 65.9 activity.tcx activityTwo.tcx
