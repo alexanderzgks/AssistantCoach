@@ -6,22 +6,29 @@ import java.util.List;
 
 /**
  * Κλάση υπεύθυνη για τον έλεγχο των arguments της γραμμής εντολών.
- * Υποστηριζόμενες μορφές:
- *   java -jar coach.jar file1.tcx file2.tcx
- *   java -jar coach.jar -w 65.9 file1.tcx file2.tcx
+ * Ελέγχει αν ο χρήστης έδωσε σωστά τα αρχεία .tcx και αν έδωσε προαιρετικά
+ * το βάρος του με τη σημαία -w.
  */
 public final class ArgsValidator {
 
-    // private constructor για να μην μπορείς να κάνεις new ArgsValidator()
+    // Private constructor για να μην μπορείς να κάνεις new ArgsValidator()
     private ArgsValidator() { }
 
+    /**
+     * Ελέγχει και αναλύει τα ορίσματα που δόθηκαν στην εφαρμογή.
+     * Επιστρέφει ένα αντικείμενο ArgsResult με το βάρος και τη λίστα των αρχείων.
+     * Αν υπάρχει λάθος στα ορίσματα, πετάει IllegalArgumentException.
+     */
     public static ArgsResult validate(String[] args) {
+        // 1. Έλεγχος αν υπάρχουν καθόλου ορίσματα
         if (args == null || args.length == 0) {
-            throw new IllegalArgumentException("Δεν δώθηκαν arguments. Πρέπει να δώσεις τουλάχιστον ένα .tcx αρχείο.");
+            throw new IllegalArgumentException("Δεν δόθηκαν arguments. Πρέπει να δώσεις τουλάχιστον ένα .tcx αρχείο.");
         }
-        double weight = -1.0;   // default: δεν υπάρχει βάρος
-        int index = 0;          // από πού ξεκινάνε τα αρχεία στα args
-        // ===== Έλεγχος για -w στην αρχή =====
+
+        double weight = -1.0;   // default: -1 σημαίνει ότι δεν δόθηκε βάρος
+        int index = 0;          // Δείκτης που δείχνει από ποια θέση του πίνακα ξεκινάνε τα αρχεία
+
+        // 2. Έλεγχος για το προαιρετικό flag -w στην αρχή
         if (args.length >= 2 && "-w".equals(args[0])) {
             String weightStr = args[1];
             try {
@@ -29,39 +36,48 @@ public final class ArgsValidator {
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("Η τιμή βάρους δεν είναι έγκυρος αριθμός: " + weightStr);
             }
+
+            // Το βάρος πρέπει να είναι θετικός αριθμός
             if (weight <= 0) {
                 throw new IllegalArgumentException("Το βάρος πρέπει να είναι θετικός αριθμός.");
             }
+
+            // Αν βρήκαμε βάρος, τα αρχεία ξεκινάνε από τη θέση 2
             index = 2;
         }
 
-        // ===== Δεν δόθηκαν αρχεία .tcx =====
+        // 3. Έλεγχος αν μετά το βάρος (ή χωρίς αυτό) υπάρχουν αρχεία
         if (index >= args.length) {
             throw new IllegalArgumentException("Δεν δόθηκε κανένα .tcx αρχείο.");
         }
 
-        // ===== Συλλογή & έλεγχος των .tcx αρχείων =====
+        // 4. Συλλογή και έλεγχος των αρχείων .tcx
         List<String> tcxFiles = new ArrayList<>();
+
         for (int i = index; i < args.length; i++) {
             String fileName = args[i];
-            // Έλεγχος κατάληξης .tcx
+
+            // Έλεγχος σωστής κατάληξης
             if (!fileName.toLowerCase().endsWith(".tcx")) {
                 throw new IllegalArgumentException("Το αρχείο δεν είναι τύπου .tcx: " + fileName);
             }
-            // Έλεγχος αν υπάρχει το αρχείο στον δίσκο
+
+            // Έλεγχος ύπαρξης στο δίσκο
             File f = new File(fileName);
             if (!f.exists() || f.isDirectory()) {
                 throw new IllegalArgumentException("Το αρχείο δεν βρέθηκε ή δεν είναι έγκυρο: " + fileName);
             }
+
             tcxFiles.add(fileName);
         }
 
-        // Αν όλα είναι ΟΚ, φτιάχνουμε το αποτέλεσμα
+        // Αν φτάσαμε εδώ, όλα είναι σωστά
         return new ArgsResult(weight, tcxFiles);
     }
 
     /**
-     * Μικρή βοηθητική κλάση που κρατάει το αποτέλεσμα του validation.
+     * Βοηθητική κλάση που κρατάει το αποτέλεσμα του ελέγχου (Validation).
+     * Περιέχει το βάρος (αν δόθηκε) και τη λίστα των έγκυρων αρχείων.
      */
     public static class ArgsResult {
 
@@ -73,26 +89,19 @@ public final class ArgsValidator {
             this.tcxFiles = tcxFiles;
         }
 
-        /**
-         * @return το βάρος που δόθηκε, ή -1 αν δεν δόθηκε καθόλου -w
-         */
+        // Επιστρέφει το βάρος σε κιλά (ή -1 αν δεν δόθηκε)
         public double getWeight() {
             return weight;
         }
 
-        /**
-         * @return λίστα με όλα τα .tcx αρχεία
-         */
+        // Επιστρέφει τη λίστα με τα μονοπάτια των αρχείων
         public List<String> getTcxFiles() {
             return tcxFiles;
         }
 
-        /**
-         * @return true αν ο χρήστης έδωσε βάρος με -w
-         */
+        // Επιστρέφει true αν ο χρήστης έδωσε βάρος, αλλιώς false
         public boolean hasWeight() {
             return weight > 0;
         }
     }
 }
-

@@ -5,10 +5,9 @@ import org.huacoach.enums.SportType;
 
 public class CaloriesCalculator {
 
-    // -----------------------------------------------------------
+
     // ΤΡΟΠΟΣ 1: Απλός (Μόνο με βάρος και είδος άθλησης)
     // Formula: C = mu * weight * time (mins)
-    // -----------------------------------------------------------
     public static double calculateCaloriesSimple(double weightKg, long durationSeconds, SportType sport) {
         if (weightKg <= 0 || durationSeconds <= 0) return 0;
 
