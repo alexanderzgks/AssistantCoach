@@ -3,18 +3,20 @@ package org.huacoach.model;
 import java.time.OffsetDateTime;
 
 /**
- * H class Trackpoint αντιπροσωπεύει τα trackpoint XML.
+ * Η κλάση Trackpoint αναπαριστά ένα αντίστοιχο track point
+ * όπως στο TCX.
  */
 public class Trackpoint {
 
-    private OffsetDateTime time;
-    private Double latitudeDegrees;
-    private Double longitudeDegrees;
-    private Double altitudeMeters;
-    private Double distanceMeters;
-    private Integer heartRate;
-    private Integer cadence;
+    private OffsetDateTime time; // Χρονική στιγμή καταγραφής του track point
+    private Double latitudeDegrees; // Γεωγραφικό πλάτος
+    private Double longitudeDegrees; // Γεωγραφικό μήκος
+    private Double altitudeMeters; // Υψόμετρο σε μέτρα
+    private Double distanceMeters; // Συνολική απόσταση μέχρι το συγκεκριμένο σημείο
+    private Integer heartRate; // Καρδιακοί παλμοί τη συγκεκριμένη στιγμή
+    private Integer cadence;  // Cadence (βήματα ή στροφές ανά λεπτό)
 
+    // Constructor
     public Trackpoint(OffsetDateTime time,
                       Double latitudeDegrees,
                       Double longitudeDegrees,
@@ -31,6 +33,8 @@ public class Trackpoint {
         this.cadence = cadence;
     }
 
+
+    // ------------------ Getters ------------------
     public OffsetDateTime getTime(){ return time; }
     public Double getLatitudeDegrees(){ return latitudeDegrees; }
     public Double getLongitudeDegrees(){ return longitudeDegrees; }
@@ -39,7 +43,7 @@ public class Trackpoint {
     public Integer getHeartRate(){ return heartRate; }
     public Integer getCadence(){ return cadence; }
 
-
+    // Eκτυπώνει τα δεδομένων
     @Override
     public String toString(){
         return  "\n---Trackpoint---"+

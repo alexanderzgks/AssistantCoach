@@ -6,24 +6,30 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Κλάση που αναπαριστά μία αθλητική δραστηριότητα
+ * όπως αυτή διαβάζεται από TCX αρχείο.
+ * Η κλάση λειτουργεί ως data holder.
+ */
 public class XMLActivity {
 
+    // Τύπος αθλήματος (running, cycling κλπ)
     private SportType sportType;
+    // Χρόνος έναρξης της δραστηριότητας
     private OffsetDateTime startTime;
+    // Αναγνωριστικό δραστηριότητας από το XML
     private String id;
+    // Λίστα με τα laps
     private List<Lap> laps = new ArrayList<>();
 
+    // Constructor
     public XMLActivity(SportType sportType, OffsetDateTime startTime, String id){
         this.sportType = sportType;
         this.startTime = startTime;
         this.id = id;
     }
 
-    public XMLActivity(){
-        this.sportType = SportType.OTHER;
-        this.startTime = null;
-    }
-
+    // -------- Setters --------
     public void setSportType(SportType sportType){
         this.sportType = sportType;
     }
@@ -31,6 +37,8 @@ public class XMLActivity {
     public void setStartTime(OffsetDateTime startTime){
         this.startTime = startTime;
     }
+
+    // -------- Getters --------
 
     public SportType getSportType(){
         return sportType;
@@ -40,6 +48,7 @@ public class XMLActivity {
         return startTime;
     }
 
+    // Παίρνει τη λίστα από laps του Activity
     public List<Lap> getLaps(){
         return laps;
     }
