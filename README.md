@@ -48,7 +48,7 @@ org.huacoach
 4. Υπολογίζονται στατιστικά
 5. Εκτυπώνονται τα αποτελέσματα
 
-## Explain the Structure
+## Explain the Structure and Classes
 ### app package
 
 ## Instructions
