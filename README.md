@@ -41,6 +41,13 @@ org.huacoach
     └── ArgsValidator.java
 ```
 
+## How It Works
+1. Γίνεται έλεγχος ορισμάτων εισόδου
+2. Διαβάζονται τα αρχεία TCX
+3. Δημιουργούνται αντικείμενα Activity / Track / Lap
+4. Υπολογίζονται στατιστικά
+5. Εκτυπώνονται τα αποτελέσματα
+
 ## Explain the Structure
 ### app package
 
