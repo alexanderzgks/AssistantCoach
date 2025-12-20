@@ -36,6 +36,9 @@ org.huacoach
     └── ArgsValidator.java
 ```
 
+## Explain the Structure
+### app package
+
 ## Instructions
 Για να τρέξετε το πρόγραμμα θα πρέπει να να μεταβείται στον φάκελο του προγράμματος και έπειτα θα πρέπει
 να πάτε στο out/artifacts/AssistantCoach_jar (στον οποίο φάκελο υπάρχουν δυο αρχεία tcx) και επείτα μπορείτε να τρέξετε τις εξής εντολές:
