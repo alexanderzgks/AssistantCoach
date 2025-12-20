@@ -94,6 +94,6 @@ out/
 
 Έαν θέλετε τα να τρέξετε πολλα αρχεία μαζι χρησιμοποιήστε αυτη την εντολή για να πάρετε τα στατιστικά των
 ασκήσεων.
-- java -jar AssistantCoach.jar activity.tcx activityTwo.tcx
+- java -jar AssistantCoach.jar activity.tcx activityTwo.tcx.
 Αν θέλετε να δώσετε μέσα απο τήν κονσόλα το βάρος για να υπολογίσετε τις θερμίδες, γίνεται μέσω αύτης τής εντολή
 - java -jar AssistantCoach.jar -w 65.9 activity.tcx activityTwo.tcx
