@@ -1,9 +1,9 @@
 package org.huacoach.data;
 
-import org.huacoach.model.XMLActivity;
+
 import java.util.ArrayList;
 import java.util.List;
-
+import org.huacoach.model.XMLActivity;
 /**
  * ActivityRepository
  *
