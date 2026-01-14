@@ -13,18 +13,20 @@ public class TabController {
 
     private final JFrame frame;
     private JTabbedPane tabbedPane;
+    private final UserProfileRepository userProfileRepository;
 
     // Repositories για άντληση δεδομένων
     private final ActivityRepository activityRepository = new ActivityRepository();
-    private final UserProfileRepository userProfileRepository = new UserProfileRepository();
+
 
     // Panels
     private ActivitiesPanel activitiesPanel;
     private SummaryPanel summaryPanel; // <--- ΝΕΟ
 
-    public TabController(JFrame frame){
+    public TabController(JFrame frame , UserProfileRepository repo){
         this.frame = frame;
         this.frame.add(createTabs(), BorderLayout.CENTER);
+        this.userProfileRepository = repo;
     }
 
     private JTabbedPane createTabs(){
@@ -91,7 +93,7 @@ public class TabController {
             }
             // ΔΙΟΡΘΩΣΗ: Παίρνουμε το βάρος από το Profile
             double w = userProfileRepository.getProfile().getWeight();
-            activitiesPanel.showReport(activities, w);
+            activitiesPanel.showReport(activities, userProfileRepository.getProfile());
 
             cardLayout.show(container, "STATS");
         });

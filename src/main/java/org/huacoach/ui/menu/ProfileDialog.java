@@ -1,10 +1,10 @@
 package org.huacoach.ui.menu;
-
 import org.huacoach.data.UserProfileRepository;
 import org.huacoach.enums.Sex;
 import org.huacoach.model.UserProfile;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 
@@ -37,7 +37,8 @@ public class ProfileDialog extends JDialog{
      * Το προφίλ που επεξεργάζεται το dialog.
      */
     private UserProfile profile;
-
+    private JComboBox<String> methodComboBox;
+    private JTextField goalField;
 
     /**
      * Constructor του dialog.
@@ -50,7 +51,7 @@ public class ProfileDialog extends JDialog{
         super(frame, "My Profile", true);
         this.userProfileRepository = userProfileRepository;
         this.profile = profile;
-        setSize(340, 240);
+        setSize(400, 550);
         setLocationRelativeTo(frame);
         setLayout(new BorderLayout(10, 10));
         add(createForm(profile), BorderLayout.CENTER);
@@ -65,8 +66,8 @@ public class ProfileDialog extends JDialog{
      * @return JPanel με GridLayout 4x2
      */
     private JPanel createForm(UserProfile profile) {
-        JPanel panel = new JPanel(new GridLayout(4, 2, 8, 8));
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(0, 1, 0, 10));
+        panel.setBorder(new EmptyBorder(25, 25, 25, 25));
 
         // Username
         panel.add(new JLabel("Username:"));
@@ -91,7 +92,28 @@ public class ProfileDialog extends JDialog{
         weightField = new JTextField(profile != null ? String.valueOf(profile.getWeight()) : "");
         panel.add(weightField);
 
+        panel.add(new JLabel("Calculation Method:"));
+        methodComboBox = new JComboBox<>(new String[]{"Simple", "Advanced"});
+        if (profile != null && profile.getCalcMethod() != null) {
+            methodComboBox.setSelectedItem(profile.getCalcMethod());
+        }
+        panel.add(methodComboBox);
+
+        if (profile != null && profile.getCalcMethod() != null) {
+            methodComboBox.setSelectedItem(profile.getCalcMethod());
+        }
+        panel.add(methodComboBox);
+
+        //  Daily Goal
+        panel.add(createLabel("Daily Goal (kcal):"));
+        // Παίρνουμε την τρέχουσα τιμή από το προφίλ (αν υπάρχει), αλλιώς 2000
+        String goalVal = (profile != null) ? String.valueOf(profile.getCalorieGoal()) : "2000";
+        goalField = new JTextField(goalVal);
+        panel.add(goalField);
+
+
         return panel;
+
     }
 
     /**
@@ -101,9 +123,13 @@ public class ProfileDialog extends JDialog{
      */
     private JPanel createButtons() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         JButton save = new JButton("Save");
         JButton cancel = new JButton("Cancel");
+
+        save.setPreferredSize(new Dimension(80, 30));
+        cancel.setPreferredSize(new Dimension(80, 30));
 
         save.addActionListener(e -> onSave());
         cancel.addActionListener(e -> dispose());
@@ -111,6 +137,13 @@ public class ProfileDialog extends JDialog{
         panel.add(save);
         panel.add(cancel);
         return panel;
+    }
+
+    private JLabel createLabel(String text) {
+        JLabel label = new JLabel(text);
+        label.setFont(new Font("Arial", Font.BOLD, 12));
+        label.setForeground(Color.DARK_GRAY);
+        return label;
     }
 
     /**
@@ -122,6 +155,8 @@ public class ProfileDialog extends JDialog{
             // Διαβάζουμε τις τιμές από τα inputs
             String userName = userNameField.getText().trim();
             Sex sex = (Sex) sexComboBox.getSelectedItem();
+            int goal = Integer.parseInt(goalField.getText().trim());
+            String method = (String) methodComboBox.getSelectedItem();
 
             // Age: αν μείνει κενό, κρατάμε 0 (design choice)
             int age = 0;
@@ -169,9 +204,13 @@ public class ProfileDialog extends JDialog{
             profile.setSex(sex);
             profile.setAge(age);
             profile.setWeight(weight);
+            profile.setCalorieGoal(goal);
+            profile.setCalcMethod(method);
 
             // Αποθήκευση (in-memory) στο repository
             userProfileRepository.setProfile(profile);
+            String selectedMethod = (String) methodComboBox.getSelectedItem();
+            profile.setCalcMethod(selectedMethod);
 
             // Κλείσιμο dialog μετά από επιτυχημένο Save
             dispose();

@@ -1,5 +1,6 @@
 package org.huacoach.ui.menu;
 
+import org.huacoach.data.ActivityRepository;
 import org.huacoach.interfaces.AboutActions;
 import org.huacoach.interfaces.FileActions;
 
@@ -11,6 +12,8 @@ public class MenuController {
     private final FileActions fileActions;
     private final ProfileDialog profileDialog;
     private final AboutActions aboutActions;
+    // Νέο πεδίο: Χρειαζόμαστε το Repository για να αποθηκεύουμε τις χειροκίνητες
+    private final ActivityRepository activityRepository = new ActivityRepository();
 
 
     public MenuController(JFrame frame, FileActions fileActions,ProfileDialog profileDialog ,AboutActions aboutActions){
@@ -26,17 +29,19 @@ public class MenuController {
 
         JMenu fileMenu = new JMenu("File");
         JMenuItem openNewFile = new JMenuItem("Open File");
+        JMenuItem manualAdd = new JMenuItem("Add Manual Activity");
         JMenuItem seeTheFileTheProgramUse = new JMenuItem("Using Files");
         openNewFile.addActionListener(e -> openTcxFiles());
         seeTheFileTheProgramUse.addActionListener(e -> seeUseFiles());
         fileMenu.add(openNewFile);
         fileMenu.add(seeTheFileTheProgramUse);
+        fileMenu.add(manualAdd);
 
         JMenu profile = new JMenu("Profile");
         JMenuItem editProfile = new JMenuItem("My Profile");
         editProfile.addActionListener(e->editProfile());
         profile.add(editProfile);
-
+        manualAdd.addActionListener(e -> openManualAdd());
         JMenu aboutMenu = new JMenu("About");
         JMenuItem creators = new JMenuItem("Creators");
         JMenuItem info = new JMenuItem("Info");
@@ -50,6 +55,13 @@ public class MenuController {
         menuBar.add(aboutMenu);
         return menuBar;
     }
+
+    // Η μέθοδος που ανοίγει το Dialog
+    private void openManualAdd() {
+        AddActivityDialog dialog = new AddActivityDialog(frame, activityRepository);
+        dialog.setVisible(true);
+    }
+
 
     private void openTcxFiles(){
         fileActions.openFiles();

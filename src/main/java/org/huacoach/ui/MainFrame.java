@@ -54,8 +54,7 @@ public class MainFrame {
         // Συνδέουμε το μενού με τους controllers και το repository
         new MenuController(frame, tcxFileController, profileDialog,aboutController);
 
-        // Δημιουργία tabs/panels στο ίδιο frame
-        new TabController(frame);
+        new TabController(frame, userProfileRepository);
 
         frame.setVisible(true);
     }
