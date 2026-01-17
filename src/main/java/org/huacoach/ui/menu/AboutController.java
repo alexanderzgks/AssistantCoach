@@ -74,7 +74,7 @@ public class AboutController implements AboutActions {
      */
     @Override
     public void getInfo(){
-        StringBuilder message = new StringBuilder("Δες το Readme\n\n");
+        StringBuilder message = new StringBuilder("Όλες οι πληροφορίες βρίσκονται στο README!\n\n");
         JOptionPane.showMessageDialog(
                 frame,
                 message.toString(),

@@ -15,7 +15,7 @@ import java.util.List;
  * 2. Ανάγνωση Αρχείων (Parsing)
  * 3. Εμφάνιση Αποτελεσμάτων (Printing)
  */
-public class Main {
+public class OldMain {
 
     // Στατικά αντικείμενα που θα χρησιμοποιήσουμε για το parsing και την εκτύπωση
     private static final TcxFileParser PARSER = new TcxFileParser();

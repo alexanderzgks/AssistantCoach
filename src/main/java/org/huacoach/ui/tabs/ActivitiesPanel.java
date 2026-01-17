@@ -10,6 +10,20 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.List;
 
+
+/**
+ * ActivitiesPanel
+ * --------------------------------------------------
+ * Panel που εμφανίζει τα στατιστικά μιας δραστηριότητας τη φορά
+ * και επιτρέπει πλοήγηση (Prev/Next) ανάμεσα στις δραστηριότητες.
+ *
+ * Τι δείχνει:
+ * - Sport type
+ * - Duration
+ * - Distance
+ * - Average Heart Rate
+ * - Calories (με βάση το UserProfile και τη μέθοδο Simple/Advanced)
+ */
 public class ActivitiesPanel extends JPanel {
 
     private final JPanel content = new JPanel(new BorderLayout(12, 12));
