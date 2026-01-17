@@ -18,9 +18,18 @@ org.huacoach
 ├── app
 │   └── Main.java
 │
+├── data
+│   ├── ActivityRepository.java
+│   ├── TcxFileRepository.java
+│   └── UserProfileRepository.java
+│
 ├── enums
 │   ├── Sex.java
 │   └── SportType.java
+│
+├── interfaces
+│   ├── FileActions.java
+│   └── AboutActions.java
 │
 ├── model
 │   ├── Lap.java
@@ -33,9 +42,24 @@ org.huacoach
 │
 ├── services
 │   ├── ActivityPrinter.java
-│   ├── ActivityService.java
+│   ├── ActivityFileService.java
 │   ├── CaloriesCalculator.java
 │   └── StatisticsCalculator.java
+│
+├── ui
+│   ├── MainFrame.java
+│   │
+│   ├── menu
+│   │   ├── MenuController.java
+│   │   ├── TcxFileController.java
+│   │   ├── AboutController.java
+│   │   ├── AddActivityDialog.java
+│   │   └── ProfileDialog.java
+│   │
+│   └── tabs
+│       ├── TabController.java
+│       ├── ActivitiesPanel.java
+│       └── SummaryPanel.java
 │
 └── validation
     └── ArgsValidator.java
@@ -57,6 +81,13 @@ org.huacoach
  - Αποθηκεύει τις έγκυρες δραστηριότητες (XMLActivity) σε λίστα.
  - Αν δεν βρεθεί καμία έγκυρη δραστηριότητα, τερματίζει.
  - Για κάθε δραστηριότητα, εκτυπώνει τα αποτελέσματα μέσω ActivityPrinter, λαμβάνοντας υπόψη και το βάρος (αν δόθηκε).
+### org.huacoach.data
+**Ρόλος**: Το πακέτο data αποτελεί το επίπεδο διαχείρισης και πρόσβασης στα δεδομένα της εφαρμογής.
+Είναι υπεύθυνο για την αποθήκευση, την ανάκτηση και τη διαχείριση των βασικών οντοτήτων, χωρίς να περιέχει λογική υπολογισμών 
+ή κώδικα διεπαφής χρήστη.
+   - **ActivityRepository**: Η κλάση ActivityRepository λειτουργεί ως κεντρικό αποθετήριο δραστηριοτήτων. Αναλαμβάνει τη συλλογή, αποθήκευση και παροχή πρόσβασης στις δραστηριότητες.
+   - **TcxFileRepository**:  Η κλάση TcxFileRepository είναι υπεύθυνη για την αποθηκεύει τα αρχεία τύπου .tcx τα οποία έχει επιλέξει ή που χρησιμοποιήει ο χρήστης κατά την εκτέλεση της εφαρμογής.
+   - **UserProfileRepository**: Η κλάση UserProfileRepository είναι υπεύθυνη για την αποθήκευση και διαχείριση του UserProfile της εφαρμογής. Η εφαρμογή υποθέτει single-user περιβάλλον, επομένως το repository διατηρεί ένα μόνο profile.
 ### org.huacoach.enums
 **Ρόλος**: προσφαίρει σταθερές τιμές
 ### org.huacoach.model
