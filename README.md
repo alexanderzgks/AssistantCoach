@@ -66,7 +66,7 @@ org.huacoach
     └── ArgsValidator.java
 ```
 
-## How It Works
+## How It Works Without UI
 1. Γίνεται έλεγχος ορισμάτων εισόδου
 2. Διαβάζονται τα αρχεία TCX
 3. Δημιουργούνται αντικείμενα Activity / Lap / Trackpoint / Track.
