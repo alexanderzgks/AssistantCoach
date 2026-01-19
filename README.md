@@ -77,8 +77,8 @@ org.huacoach
 
 ## Explain the Structure and Classes
 ### org.huacoach.app
-**Ρόλος**: το “entry point” της εφαρμογής (CLI).
-- **Μain**
+**Ρόλος**: το “entry point” της εφαρμογής.
+**OidΜain**
  - Ελέγχει τα arguments της γραμμής εντολών μέσω ArgsValidator.
  - Διαβάζει τα αρχεία TCX που δόθηκαν, χρησιμοποιώντας τον TcxFileParser.
  - Αποθηκεύει τις έγκυρες δραστηριότητες (XMLActivity) σε λίστα.
