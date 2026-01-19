@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="AssistantCoach:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/AssistantCoach_jar</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
     <root id="archive" name="AssistantCoach.jar">
       <element id="module-output" name="AssistantCoach" />
     </root>
