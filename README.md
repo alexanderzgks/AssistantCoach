@@ -142,10 +142,10 @@ org.huacoach
 ```
 out/
 └── artifacts/
+    ├── AssistantCoach.jar
     └── AssistantCoach_jar/
         ├── activity.tcx
-        ├── activityTwo.tcx
-        └── AssistantCoach.jar
+        └── activityTwo.tcx
 ```
 
 Εάν θέλετε να τρέξετε **πολλά αρχεία ταυτόχρονα**, χρησιμοποιήστε την παρακάτω εντολή για να λάβετε τα στατιστικά των
