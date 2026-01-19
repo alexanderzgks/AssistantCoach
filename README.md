@@ -16,7 +16,9 @@
 ```
 org.huacoach
 ├── app
-│   └── Main.java
+│   ├── AppMain.java
+│   ├── NewMain.java
+│   └── OldMain.java
 │
 ├── data
 │   ├── ActivityRepository.java
